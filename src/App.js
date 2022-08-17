@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Groups from "./components/Groups";
+import { TaskContext } from "./context/TaskContext";
 
 function App() {
   return (
-    <div className="App">
+    <TaskContext>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1 className="App-title">Todo Colaborativo</h1>
       </header>
-    </div>
+      <main className="App-contaner">
+        <Groups groupName="Best Coders" />
+      </main>
+    </TaskContext>
   );
 }
 
