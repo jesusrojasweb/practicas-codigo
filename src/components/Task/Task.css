@@ -1,0 +1,24 @@
+.Task{
+    background: var(--brand_color_02);
+    margin-bottom: 1em;
+    padding: .5em 1em;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Task-button{
+    background: none;
+    color: white;
+    padding: 0;
+    border: none;
+    margin-left: 1em;
+    cursor: pointer;
+    transition: .3s;
+}
+
+
+.Task-button:hover{
+    color: var(--brand_color_01);
+}

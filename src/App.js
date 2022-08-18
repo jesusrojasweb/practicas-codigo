@@ -11,6 +11,8 @@ function App() {
       </header>
       <main className="App-contaner">
         <Groups groupName="Best Coders" />
+        <Groups groupName="Bad Coders" />
+        <Groups groupName="Best Designer" />
       </main>
     </TaskContext>
   );
