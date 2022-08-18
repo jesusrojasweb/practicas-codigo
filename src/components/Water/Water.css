@@ -1,0 +1,27 @@
+.Water{
+    /* border: 1px solid #fa77a1; */
+    background:rgb(32, 33, 44);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    transition: .3s;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-color: rgba(255, 255, 255, 0.4);
+    position: relative;
+}
+
+.Water:hover{
+    background:rgb(56, 57, 77);
+    cursor:pointer
+}
+
+.Water--active:after{
+    content: '';
+    width: calc(100% - 1.5em);
+    height: calc(100% - 1.5em);
+    background-color: white;
+    border-radius: 100%;
+}

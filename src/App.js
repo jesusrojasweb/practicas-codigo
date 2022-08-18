@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import usePlayer from "./hooks/usePlayer";
+import Grid from "./components/Grid";
+import TurnPovider from "./context/TurnContext";
+import Message from "./components/Message";
 
 function App() {
+  const [player1, setPlayer1] = usePlayer(10);
+  const [player2, setPlayer2] = usePlayer(10);
+
   return (
-    <div className="App">
+    <TurnPovider>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>BattleShip</h1>
       </header>
-    </div>
+      <Message />
+      <main className="App-battleship">
+        <Grid
+          player={player1}
+          handlePlayer={setPlayer1}
+          playerName="Jesus"
+          playerTurn={0}
+        />
+        <Grid
+          player={player2}
+          handlePlayer={setPlayer2}
+          playerName="Bryan"
+          playerTurn={1}
+        />
+      </main>
+    </TurnPovider>
   );
 }
 

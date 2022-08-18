@@ -1,0 +1,18 @@
+.Message{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Message-title{
+    text-align: center;
+    color: white
+}
+
+.Message-button{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #fa77a1;
+    color: white;
+    border-radius: 8px;
+    padding: .5em 1em;
+}
