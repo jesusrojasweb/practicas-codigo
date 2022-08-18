@@ -1,24 +1,27 @@
-import { useContext, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import Context from "../../context/TaskContext";
 
 function CreateTask({ groupName, taskToEdit }) {
   const [taskValues, setTaskValues] = useState(taskToEdit);
   const { tasks, setTasks } = useContext(Context);
 
-  const handleChange = (evt) => {
-    let value;
+  const handleChange = useCallback(
+    (evt) => {
+      let value;
 
-    if (evt.target.checked) {
-      value = evt.target.checked;
-    } else {
-      value = evt.target.value;
-    }
+      if (evt.target.checked) {
+        value = evt.target.checked;
+      } else {
+        value = evt.target.value;
+      }
 
-    setTaskValues({
-      ...taskValues,
-      [evt.target.name]: value,
-    });
-  };
+      setTaskValues({
+        ...taskValues,
+        [evt.target.name]: value,
+      });
+    },
+    [taskValues]
+  );
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
