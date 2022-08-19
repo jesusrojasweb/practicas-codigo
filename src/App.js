@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import RealStateContainer from "./components/RealStateContainer";
+import SearchHouse from "./components/SearchHouse";
+import RealStateProvider from "./context/RealStateContext";
 
 function App() {
   return (
-    <div className="App">
+    <RealStateProvider>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Real State</h1>
+        <SearchHouse />
       </header>
-    </div>
+      <main>
+        <RealStateContainer />
+      </main>
+    </RealStateProvider>
   );
 }
 

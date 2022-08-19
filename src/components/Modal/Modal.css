@@ -1,0 +1,22 @@
+.Modal{
+    background-color: rgba(0,0,0,.8);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Modal__container{
+    background: white;
+    box-sizing: border-box;
+    width: 1200px;
+    max-width: 1200px;
+    border-radius: 8px;
+    padding: 1em 2em;
+    overflow-y: scroll;
+    height: 80vh;
+}
