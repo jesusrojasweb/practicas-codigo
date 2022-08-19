@@ -1,6 +1,8 @@
 import { useState } from "react";
 import DetailsModal from "../DetailsModal.js";
 
+import "./RealState.css";
+
 function RealState(props) {
   const { price, name, located, image } = props;
   const [isOpen, setIsOpen] = useState(false);

@@ -16,6 +16,9 @@
 .SearchHouse__input::placeholder{
     color: rgba(255,255,255,0.8);
 }
+.SearchHouse__input:focus{
+    outline: none
+}
 
 .SearchHouse__button{
     background: var(--brand_color_01);

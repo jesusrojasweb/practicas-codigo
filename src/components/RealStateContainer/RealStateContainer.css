@@ -1,0 +1,7 @@
+.RealStateContainer{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    max-width: 1200px;
+    margin: 4em auto;
+    gap: 2em;
+}

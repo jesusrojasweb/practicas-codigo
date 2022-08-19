@@ -3,6 +3,8 @@ import { RealStateContext } from "../../context/RealStateContext";
 import { getRealState } from "../../services/realStateService";
 import RealState from "../RealState";
 
+import "./RealStateContainer.css";
+
 function RealStateContainer() {
   const { realStates, setRealStates, setUser } = useContext(RealStateContext);
 

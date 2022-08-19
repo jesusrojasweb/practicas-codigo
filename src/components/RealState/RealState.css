@@ -1,0 +1,45 @@
+.RealState{
+    padding: 1em;
+    box-shadow: -2px 1px 9px 3px #e3e3e3;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.RealState:hover{
+    transform: scale(1.05);
+}
+
+
+.RealState__figure{
+    margin: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.RealState__image{
+    width: 100%;
+    max-height: 190px;
+    object-fit: cover;
+}
+
+.RealState__price{
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    color: white;
+    text-shadow: 0px 1px 7px black;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.RealState__name{
+    margin-bottom: 8px;
+}
+
+.RealState__located{
+    margin: 0;
+    font-weight: 600;
+    color: #8d8d8d;
+}
