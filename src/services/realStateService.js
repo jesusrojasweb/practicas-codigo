@@ -8,6 +8,14 @@ export const searchRealState = (query) => {
   );
 };
 
+export const editRealState = (data) => {
+  return fetch(`http://localhost:3001/realStates/${data.id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  }).then((res) => getRealState());
+};
+
 export const deleteRealState = (id) => {
   return fetch(`http://localhost:3001/realStates/${id}`, {
     method: "DELETE",

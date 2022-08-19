@@ -3,7 +3,7 @@ import { RealStateContext } from "../../context/RealStateContext";
 import usePermissions from "../../hooks/usePermissions";
 import { deleteRealState } from "../../services/realStateService";
 
-function DetailsRealState({ house, onClose }) {
+function DetailsRealState({ house, onClose, handleEditting }) {
   const { id, price, name, located, type, availability, image } = house;
   const { setRealStates } = useContext(RealStateContext);
 
@@ -41,7 +41,10 @@ function DetailsRealState({ house, onClose }) {
         {hasPermissions && (
           <>
             {hasUpdate && (
-              <button className="DetailsRealState DetailsRealState--edit">
+              <button
+                className="DetailsRealState DetailsRealState--edit"
+                onClick={handleEditting}
+              >
                 Editar
               </button>
             )}
