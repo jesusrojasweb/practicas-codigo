@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
 import { RealStateContext } from "../../context/RealStateContext";
+import usePermissions from "../../hooks/usePermissions";
 import { getRealState, searchRealState } from "../../services/realStateService";
 
-function SearchHouse() {
+function SearchHouse({ handleClose }) {
   const [search, setSearch] = useState("");
   const { setRealStates } = useContext(RealStateContext);
+  const { hasCreate } = usePermissions();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,6 +34,7 @@ function SearchHouse() {
       <button type="submit" className="SearchHouse__button">
         Buscar
       </button>
+      {hasCreate && <button onClick={handleClose}>Crear</button>}
     </form>
   );
 }

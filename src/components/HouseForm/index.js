@@ -1,10 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext, useId, useState } from "react";
+import { v4 as uuid } from "uuid";
 import { RealStateContext } from "../../context/RealStateContext";
-import { editRealState } from "../../services/realStateService";
+import {
+  createRealState,
+  editRealState,
+} from "../../services/realStateService";
 
-function HouseForm({ house = {}, handleEditting }) {
+function HouseForm({ house = {}, handleEditting, onClose }) {
   const [formValues, setFormValues] = useState(house);
   const { setRealStates } = useContext(RealStateContext);
+  const houseId = useId();
 
   const handleChange = (evt) => {
     const target = evt.target;
@@ -19,10 +24,27 @@ function HouseForm({ house = {}, handleEditting }) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    editRealState(formValues).then((data) => {
-      setRealStates(data);
-      handleEditting();
-    });
+
+    if (handleEditting) {
+      editRealState(formValues).then((data) => {
+        setRealStates(data);
+        handleEditting();
+      });
+    } else {
+      const availability = Boolean(formValues.availability);
+      const price = +formValues.price;
+      const newHouse = {
+        ...formValues,
+        price,
+        availability,
+        id: uuid(),
+      };
+
+      createRealState(newHouse).then((data) => {
+        setRealStates(data);
+        onClose();
+      });
+    }
   };
 
   return (
@@ -68,7 +90,7 @@ function HouseForm({ house = {}, handleEditting }) {
         <option value="true">Disponible</option>
         <option value="false">No Disponible</option>
       </select>
-      <button type="submit">Editar</button>
+      <button type="submit">{handleEditting ? "Editar" : "Crear"}</button>
     </form>
   );
 }

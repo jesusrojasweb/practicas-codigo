@@ -2,6 +2,14 @@ export const getRealState = () => {
   return fetch("http://localhost:3001/realStates").then((res) => res.json());
 };
 
+export const createRealState = (data) => {
+  return fetch(`http://localhost:3001/realStates/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  }).then((res) => getRealState());
+};
+
 export const searchRealState = (query) => {
   return fetch(`http://localhost:3001/realStates/?q=${query}`).then((res) =>
     res.json()

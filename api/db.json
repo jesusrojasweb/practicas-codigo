@@ -35,6 +35,15 @@
       "image": "https://cdn.pixabay.com/photo/2017/04/10/22/28/residence-2219972_960_720.jpg",
       "type": "Aparamento",
       "availability": true
+    },
+    {
+      "price": 100000,
+      "name": "Casa",
+      "located": "Maturin",
+      "image": "https://cdn.pixabay.com/photo/2017/04/10/22/28/residence-2219972_960_720.jpg",
+      "type": "Casa",
+      "availability": true,
+      "id": "03f7f1e8-a047-40ca-9209-7f75975e1fb1"
     }
   ],
   "users": [
