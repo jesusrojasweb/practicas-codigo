@@ -3,6 +3,8 @@ import { RealStateContext } from "../../context/RealStateContext";
 import usePermissions from "../../hooks/usePermissions";
 import { getRealState, searchRealState } from "../../services/realStateService";
 
+import "./SearchHouse.css";
+
 function SearchHouse({ handleClose }) {
   const [search, setSearch] = useState("");
   const { setRealStates } = useContext(RealStateContext);
@@ -34,7 +36,14 @@ function SearchHouse({ handleClose }) {
       <button type="submit" className="SearchHouse__button">
         Buscar
       </button>
-      {hasCreate && <button onClick={handleClose}>Crear</button>}
+      {hasCreate && (
+        <button
+          onClick={handleClose}
+          className="SearchHouse__button SearchHouse__button--create"
+        >
+          Crear
+        </button>
+      )}
     </form>
   );
 }

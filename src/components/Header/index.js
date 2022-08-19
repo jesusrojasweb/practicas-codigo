@@ -3,6 +3,8 @@ import usePermissions from "../../hooks/usePermissions";
 import FormModal from "../FormModal";
 import SearchHouse from "../SearchHouse";
 
+import "./Header.css";
+
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { hasPermissions } = usePermissions();
@@ -11,8 +13,8 @@ function Header() {
     setIsOpen(!isOpen);
   };
   return (
-    <header className="App-header">
-      <h1>Real State</h1>
+    <header className="Header">
+      <h1 className="Header__title">Real State</h1>
       <SearchHouse handleClose={handleClose} />
       {hasPermissions && isOpen && <FormModal onClose={handleClose} />}
     </header>
