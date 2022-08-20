@@ -20,3 +20,22 @@
     overflow-y: scroll;
     height: 80vh;
 }
+
+.Moda__content{
+    display: flex;
+    align-items: center;
+    height: 85%;
+}
+
+.Modal__top{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Modal__button{
+    background: none;
+    border:none;
+    color: #878787;
+    font-size: 2rem;
+    cursor: pointer
+}

@@ -1,4 +1,5 @@
 import { createPortal } from "react-dom";
+import { FaTimes } from "react-icons/fa";
 
 import "./Modal.css";
 
@@ -8,10 +9,10 @@ export function ModalContent({ children, onClose }) {
       <div className="Modal__container">
         <header className="Modal__top">
           <button className="Modal__button" onClick={onClose}>
-            Cerrar
+            <FaTimes />
           </button>
         </header>
-        {children}
+        <div className="Moda__content">{children}</div>
       </div>
     </section>
   );

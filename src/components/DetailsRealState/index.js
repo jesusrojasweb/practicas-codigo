@@ -3,6 +3,8 @@ import { RealStateContext } from "../../context/RealStateContext";
 import usePermissions from "../../hooks/usePermissions";
 import { deleteRealState } from "../../services/realStateService";
 
+import "./DetailsRealState.css";
+
 function DetailsRealState({ house, onClose, handleEditting }) {
   const { id, price, name, located, type, availability, image } = house;
   const { setRealStates } = useContext(RealStateContext);
@@ -27,37 +29,45 @@ function DetailsRealState({ house, onClose, handleEditting }) {
   return (
     <article className="DetailsRealState">
       <figure className="DetailsRealState__figure">
-        <img src={image} alt={name} />
+        <img src={image} alt={name} className="DetailsRealState__image" />
       </figure>
-      <aside className="DetailsRealState">
-        <h2 className="DetailsRealState">{name}</h2>
-        <h3 className="DetailsRealState">{located}</h3>
+      <aside className="DetailsRealState__details">
+        <header className="DetailsRealState__header">
+          <h2 className="DetailsRealState__name">{name}</h2>
+          <h3 className="DetailsRealState__located">{located}</h3>
+        </header>
 
-        <ul className="DetailsRealState">
-          <li className="DetailsRealState">Tipo {type}</li>
-          <li className="DetailsRealState">Tipo {availabilityMessage}</li>
+        <ul className="DetailsRealState__categories">
+          <li className="DetailsRealState__type DetailsRealState__list">
+            Tipo <strong>{type}</strong>
+          </li>
+          <li className="DetailsRealState__availability DetailsRealState__list">
+            Disponibilidad <strong>{availabilityMessage}</strong>
+          </li>
+          <p className="DetailsRealState__price">${price}</p>
         </ul>
-        <p className="DetailsRealState">{price}</p>
-        {hasPermissions && (
-          <>
-            {hasUpdate && (
-              <button
-                className="DetailsRealState DetailsRealState--edit"
-                onClick={handleEditting}
-              >
-                Editar
-              </button>
-            )}
-            {hasDelete && (
-              <button
-                onClick={deleteHouse}
-                className="DetailsRealState DetailsRealState--delete"
-              >
-                Eliminar
-              </button>
-            )}
-          </>
-        )}
+        <footer className="DetailsRealState__footer">
+          {hasPermissions && (
+            <div className="DetailsRealState__buttonContainer">
+              {hasUpdate && (
+                <button
+                  className="DetailsRealState__button DetailsRealState__button--edit"
+                  onClick={handleEditting}
+                >
+                  Editar
+                </button>
+              )}
+              {hasDelete && (
+                <button
+                  onClick={deleteHouse}
+                  className="DetailsRealState__button DetailsRealState__button--delete"
+                >
+                  Eliminar
+                </button>
+              )}
+            </div>
+          )}
+        </footer>
       </aside>
     </article>
   );
