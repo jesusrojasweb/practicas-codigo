@@ -6,10 +6,11 @@ import {
   editRealState,
 } from "../../services/realStateService";
 
+import "./HouseForm.css";
+
 function HouseForm({ house = {}, handleEditting, onClose }) {
   const [formValues, setFormValues] = useState(house);
   const { setRealStates } = useContext(RealStateContext);
-  const houseId = useId();
 
   const handleChange = (evt) => {
     const target = evt.target;
@@ -48,49 +49,63 @@ function HouseForm({ house = {}, handleEditting, onClose }) {
   };
 
   return (
-    <form className="Houseform" onSubmit={handleSubmit}>
-      <input
-        name="name"
-        type="text"
-        placeholder="Nombre"
-        onChange={handleChange}
-        value={formValues.name}
-      />
-      <input
-        name="price"
-        type="number"
-        placeholder="Precio"
-        onChange={handleChange}
-        value={formValues.price}
-      />
-      <input
-        name="located"
-        type="text"
-        placeholder="Ubicacion"
-        onChange={handleChange}
-        value={formValues.located}
-      />
-      <input
-        name="image"
-        type="url"
-        placeholder="Url de la imagen"
-        onChange={handleChange}
-        value={formValues.image}
-      />
-      <select name="type" onChange={handleChange} value={formValues.type}>
-        <option>Apartamento</option>
-        <option>Casa</option>
-        <option>Renta</option>
-      </select>
-      <select
-        name="availability"
-        onChange={handleChange}
-        value={formValues.availability}
-      >
-        <option value="true">Disponible</option>
-        <option value="false">No Disponible</option>
-      </select>
-      <button type="submit">{handleEditting ? "Editar" : "Crear"}</button>
+    <form className="HouseForm" onSubmit={handleSubmit}>
+      <div className="HouseForm__group">
+        <input
+          name="name"
+          type="text"
+          placeholder="Nombre"
+          onChange={handleChange}
+          value={formValues.name}
+          className="HouseForm__name HouseForm__input"
+        />
+        <input
+          name="price"
+          type="number"
+          placeholder="Precio"
+          onChange={handleChange}
+          value={formValues.price}
+          className="HouseForm__price HouseForm__input"
+        />
+        <input
+          name="located"
+          type="text"
+          placeholder="Ubicacion"
+          onChange={handleChange}
+          value={formValues.located}
+          className="HouseForm__located HouseForm__input"
+        />
+        <input
+          name="image"
+          type="url"
+          placeholder="Url de la imagen"
+          onChange={handleChange}
+          value={formValues.image}
+          className="HouseForm__image HouseForm__input"
+        />
+        <select
+          name="type"
+          onChange={handleChange}
+          value={formValues.type}
+          className="HouseForm__type HouseForm__input"
+        >
+          <option>Apartamento</option>
+          <option>Casa</option>
+          <option>Renta</option>
+        </select>
+        <select
+          name="availability"
+          onChange={handleChange}
+          value={formValues.availability}
+          className="HouseForm__availability HouseForm__input"
+        >
+          <option value="true">Disponible</option>
+          <option value="false">No Disponible</option>
+        </select>
+      </div>
+      <button type="submit" className="HouseForm__button">
+        {handleEditting ? "Editar" : "Crear"}
+      </button>
     </form>
   );
 }
